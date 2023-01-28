@@ -1,0 +1,77 @@
+{
+  "name": "ixnode/bash-db-dumper",
+  "description": "Bash DB Dumper",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["database", "db", "dumper", "import", "export", "fixtures"],
+  "authors": [
+    {
+      "name": "Björn Hempel",
+      "email": "bjoern@hempel.li",
+      "homepage": "https://www.hempel.li/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ixnode\\BashDbDumper\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ixnode\\BashDbDumper\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php":  "^8.0",
+    "ixnode/bash-version-manager": "^0.1.5"
+  },
+  "bin": [
+    "bin/db-dumper"
+  ],
+  "scripts": {
+    "ixno:header": "bin/header/ixno",
+
+    "vm": "bin/header/vm 'bin/db-dumper --test' 'All'",
+
+    "phpunit": "bin/header/phpunit 'phpunit -d memory_limit=512M --configuration phpunit.xml' 'Unit'",
+
+    ".test:all": [
+      "@ixno:header",
+      "@vm",
+      "@phpunit"
+    ],
+    "test:all": [
+      "composer .test:all && bin/header/success || bin/header/error"
+    ],
+    "test": [
+      "@test:all"
+    ],
+
+    "php-version": "php --version",
+    "bash-version": "bash --version",
+    "db-dump": "bin/db-dumper dump",
+    "db-import": "bin/db-dumper import"
+  },
+  "scripts-descriptions": {
+    ".test:all": "Not used (Hidden command).",
+    ".test:basic": "Not used (Hidden command).",
+    ".test:hardcore": "Not used (Hidden command).",
+    ".test:most": "Not used (Hidden command).",
+
+    "ixno:header": "Shows ixno test header.",
+
+    "vm": "Runs version manager test.",
+
+    "phpunit": "Runs PHPUnit unit tests (all tests).",
+
+    "test": "Runs all available tests (vm, phpunit, etc.).",
+
+    "php-version": "Shows the PHP version.",
+    "bash-version": "Shows the Bash version.",
+    "db-dump": "Creates db fixtures from given db (dump).",
+    "db-import": "Imports existing db fixtures to db (import)."
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
+}
