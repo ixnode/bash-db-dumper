@@ -57,6 +57,16 @@ See `.env.dist` file for other examples and configuration variables like:
 * `MYSQLDUMP_TABLES_NO_DATA`
 * `MYSQLDUMP_TABLES_ONLY_DATA`
 
+### Overview of configuration
+
+| Variable                     | Description                                                                                                                                           | Example                                                                   |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| `MYSQLDUMP_DATABASE_URL`     | Contains the database credentials.                                                                                                                    | `mysql://user:pass@localhost:3306/db?serverVersion=8.0`                   |
+| `MYSQLDUMP_IGNORED_TABLES`   | Contains a comma-separated list of tables which are to be ignored by the dump command. Asterisk can be used to specify several tables at once.        | `table1,table2,cache_*`                                                   |
+| `MYSQLDUMP_FILTERED_TABLES`  | Used to filter the content of tables. As an example only export data that is not deleted or is hidden (`deleted = 0 AND hidden = 0`).                 | `table3:"deleted = 0 AND hidden = 0",table4:"deleted = 0 AND hidden = 0"` |
+| `MYSQLDUMP_TABLES_NO_DATA`   | Contains a comma-separated list of tables from which no data should be dumped. Asterisk can be used to specify several tables at once.                | `table5,table6_*`                                                         |
+| `MYSQLDUMP_TABLES_ONLY_DATA` | Contains a comma-separated list of tables from which no structure of tables should be dumped. Asterisk can be used to specify several tables at once. | `table7,table8_*`                                                         |
+
 ## Dump tables into db fixtures
 
 ### Via composer
@@ -152,7 +162,11 @@ vendor/bin/version-manager --patch
 ```
 
 ```bash
-bin/db-dumper -u > bin/db-dumper
+bin/db-dumper -u
+```
+
+```bash
+rm bin/db-dumper && mv bin/db-dumper.tmp bin/db-dumper
 ```
 
 ```bash

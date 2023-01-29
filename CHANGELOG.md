@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Releases
 
+### [0.1.3] - 2023-01-29
+
+* Add overview of configuration
+
+### [0.1.2] - 2023-01-29
+
+* Add new documentation
+
 ### [0.1.1] - 2023-01-28
 
 * Change .env access (available from vendor execution)
