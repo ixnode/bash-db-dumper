@@ -9,8 +9,10 @@
 
 ## Installation
 
+### Within a PHP project ([composer](https://getcomposer.org/))
+
 ```bash
-composer require ixnode/bash-db-dumper
+composer require --dev ixnode/bash-db-dumper
 ```
 
 ```bash
@@ -18,7 +20,21 @@ vendor/bin/db-dumper -V
 ```
 
 ```bash
-db-dumper 0.1.0 (2023-28-01 16:19:31) - Björn Hempel <bjoern@hempel.li>
+db-dumper 0.1.1 (2023-28-01 18:07:16) - Björn Hempel <bjoern@hempel.li>
+```
+
+### Outside the project
+
+```bash
+git clone git@github.com:ixnode/bash-db-dumper.git && cd bash-db-dumper
+```
+
+```bash
+bin/db-dumper -V
+```
+
+```bash
+db-dumper 0.1.1 (2023-28-01 18:07:16) - Björn Hempel <bjoern@hempel.li>
 ```
 
 ## Preparation
@@ -43,14 +59,30 @@ See `.env.dist` file for other examples and configuration variables like:
 
 ## Dump tables into db fixtures
 
+### Via composer
+
 ```bash
-$ bin/dbHelper dump
+vendor/bin/db-dumper dump
+```
+
+### Cloned project
+
+```bash
+bin/db-dumper dump
 ```
 
 ## Import existing db fixtures from `fixtures/db` into database
 
+### Via composer
+
 ```bash
-$ bin/dbHelper import
+vendor/bin/db-dumper import
+```
+
+### Cloned project
+
+```bash
+bin/db-dumper import
 ```
 
 ## Show help
@@ -62,7 +94,7 @@ vendor/bin/db-dumper -h
 ```
 
 ```bash
-db-dumper 0.1.0 (2023-28-01 16:19:31) - Björn Hempel <bjoern@hempel.li>
+db-dumper 0.1.1 (2023-28-01 18:07:16) - Björn Hempel <bjoern@hempel.li>
 
 Usage: db-dumper [options...] dump
 Usage: db-dumper [options...] import
@@ -87,28 +119,44 @@ Usage: db-dumper [options...] import
 
 The command only shows the commands and does not execute them:
 
+### Via composer
+
 ```bash
-$ bin/dbHelper dump -d
+vendor/bin/db-dumper dump -d
 ```
 
 ```bash
-$ bin/dbHelper import -d
+vendor/bin/db-dumper import -d
+```
+
+### Cloned project
+
+```bash
+bin/db-dumper dump -d
+```
+
+```bash
+bin/db-dumper import -d
 ```
 
 ## Show last log
 
 ```bash
-$ bin/dbHelper -l
+vendor/bin/db-dumper -l
 ```
 
 ## Update version
 
 ```bash
-vi VERSION
+vendor/bin/version-manager --patch
 ```
 
 ```bash
-bin/dbHelper -u > bin/dbHelper
+bin/db-dumper -u > bin/db-dumper
+```
+
+```bash
+vi CHANGELOG.md
 ```
 
 ## License
