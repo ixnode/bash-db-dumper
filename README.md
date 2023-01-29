@@ -81,7 +81,9 @@ vendor/bin/db-dumper dump
 bin/db-dumper dump
 ```
 
-## Import existing db fixtures from `fixtures/db` into database
+All dumps are then located in `./fixtures/db/*.sql`.
+
+## Import existing db fixtures located in `./fixtures/db/*.sql` into database
 
 ### Via composer
 
