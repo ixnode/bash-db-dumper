@@ -617,12 +617,12 @@ function readConfiguration()
     DB_HOST=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_DATABASE_URL=" | sed 's/MYSQLDUMP_DATABASE_URL=mysql:\/\/\([^:]*\):\([^@]*\)@\([^:]*\):\([^\/]*\)\/\([^?]*\)\?\(.*\)/\3/')
     DB_PORT=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_DATABASE_URL=" | sed 's/MYSQLDUMP_DATABASE_URL=mysql:\/\/\([^:]*\):\([^@]*\)@\([^:]*\):\([^\/]*\)\/\([^?]*\)\?\(.*\)/\4/')
     DB_NAME=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_DATABASE_URL=" | sed 's/MYSQLDUMP_DATABASE_URL=mysql:\/\/\([^:]*\):\([^@]*\)@\([^:]*\):\([^\/]*\)\/\([^?]*\)\?\(.*\)/\5/')
-    MYSQLDUMP_IGNORED_TABLES=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_IGNORED_TABLES=" | sed 's/[^=]\+=//')
-    MYSQLDUMP_FILTERED_TABLES=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_FILTERED_TABLES=" | sed 's/[^=]\+=//')
-    MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN=" | sed 's/[^=]\+=//')
-    MYSQLDUMP_TABLES_NO_DATA=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_TABLES_NO_DATA=" | sed 's/[^=]\+=//')
-    MYSQLDUMP_TABLES_ONLY_DATA=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_TABLES_ONLY_DATA=" | sed 's/[^=]\+=//')
-    MYSQLDUMP_VIEWS=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_VIEWS=" | sed 's/[^=]\+=//')
+    MYSQLDUMP_IGNORED_TABLES=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_IGNORED_TABLES=" | sed 's/[^=]*=//')
+    MYSQLDUMP_FILTERED_TABLES=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_FILTERED_TABLES=" | sed 's/[^=]*=//')
+    MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN=" | sed 's/[^=]*=//')
+    MYSQLDUMP_TABLES_NO_DATA=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_TABLES_NO_DATA=" | sed 's/[^=]*=//')
+    MYSQLDUMP_TABLES_ONLY_DATA=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_TABLES_ONLY_DATA=" | sed 's/[^=]*=//')
+    MYSQLDUMP_VIEWS=$(cat "$SETTING_ENV_PATH" | grep -v "^#" | grep --color=no "MYSQLDUMP_VIEWS=" | sed 's/[^=]*=//')
 }
 
 # =====
