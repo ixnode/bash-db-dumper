@@ -56,17 +56,25 @@ See `.env.dist` file for other examples and configuration variables like:
 * `MYSQLDUMP_FILTERED_TABLES`
 * `MYSQLDUMP_TABLES_NO_DATA`
 * `MYSQLDUMP_TABLES_ONLY_DATA`
+* `MYSQLDUMP_VIEWS`
+
+
+# MySQL dump settings: Views will be imported after importing all tables to be sure all needed tables are exists
+#
+# Example: MYSQLDUMP_VIEWS=view_1,view_2
+#=
 
 ### Overview of configuration
 
-| Variable                                    | Description                                                                                                                                           | Example                                                                   |
-|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| `MYSQLDUMP_DATABASE_URL`                    | Contains the database credentials.                                                                                                                    | `mysql://user:pass@localhost:3306/db?serverVersion=8.0`                   |
-| `MYSQLDUMP_IGNORED_TABLES`                  | Contains a comma-separated list of tables which are to be ignored by the dump command. Asterisk can be used to specify several tables at once.        | `table1,table2,cache_*`                                                   |
-| `MYSQLDUMP_FILTERED_TABLES`                 | Used to filter the content of tables. As an example only export data that is not deleted or is hidden (`deleted = 0 AND hidden = 0`).                 | `table3:"deleted = 0 AND hidden = 0",table4:"deleted = 0 AND hidden = 0"` |
-| `$MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN` | A shortcut for `MYSQLDUMP_FILTERED_TABLES` with `--where="deleted = 0 AND hidden = 0"`. Contains a comma-separated list of tables to be filtered.     | `table3,table4`                                                           |
-| `MYSQLDUMP_TABLES_NO_DATA`                  | Contains a comma-separated list of tables from which no data should be dumped. Asterisk can be used to specify several tables at once.                | `table5,table6_*`                                                         |
-| `MYSQLDUMP_TABLES_ONLY_DATA`                | Contains a comma-separated list of tables from which no structure of tables should be dumped. Asterisk can be used to specify several tables at once. | `table7,table8_*`                                                         |
+| Variable                                    | Description                                                                                                                                             | Example                                                                   |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| `MYSQLDUMP_DATABASE_URL`                    | Contains the database credentials.                                                                                                                      | `mysql://user:pass@localhost:3306/db?serverVersion=8.0`                   |
+| `MYSQLDUMP_IGNORED_TABLES`                  | Contains a comma-separated list of tables which are to be ignored by the dump command. Asterisk can be used to specify several tables at once.          | `table1,table2,cache_*`                                                   |
+| `MYSQLDUMP_FILTERED_TABLES`                 | Used to filter the content of tables. As an example only export data that is not deleted or is hidden (`deleted = 0 AND hidden = 0`).                   | `table3:"deleted = 0 AND hidden = 0",table4:"deleted = 0 AND hidden = 0"` |
+| `$MYSQLDUMP_FILTERED_TABLES_DELETED_HIDDEN` | A shortcut for `MYSQLDUMP_FILTERED_TABLES` with `--where="deleted = 0 AND hidden = 0"`. Contains a comma-separated list of tables to be filtered.       | `table3,table4`                                                           |
+| `MYSQLDUMP_TABLES_NO_DATA`                  | Contains a comma-separated list of tables from which no data should be dumped. Asterisk can be used to specify several tables at once.                  | `table5,table6_*`                                                         |
+| `MYSQLDUMP_TABLES_ONLY_DATA`                | Contains a comma-separated list of tables from which no structure of tables should be dumped. Asterisk can be used to specify several tables at once.   | `table7,table8_*`                                                         |
+| `MYSQLDUMP_VIEWS`                           | Contains a comma-separated list of views. Views will be imported after the tables are imported. Asterisk can be used to specify several tables at once. | `view1,view2_*`                                                           |
 
 ## Dump tables into db fixtures
 
