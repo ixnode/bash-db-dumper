@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Releases
 
+### [0.1.10] - 2023-10-12
+
+* Fix version of bin/db-dumper
+
+### [0.1.9] - 2023-10-12
+
+* Add --skip-comments option
+
 ### [0.1.8] - 2023-09-13
 
 * Add mac commandline fix
