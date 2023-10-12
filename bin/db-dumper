@@ -88,6 +88,7 @@ SETTING_COLOR=false
 SETTING_DEBUG=false
 SETTING_DISABLE_COLUMN_STATISTICS=false
 SETTING_SKIP_DUMP_DATE=true
+SETTING_SKIP_COMMENTS=true
 SETTING_DEFAULT_ENV_PATH=".env"
 SETTING_ENV_PATH=""
 SETTING_SQL_FIXTURE_PATH_RELATIVE="fixtures/db"
@@ -677,6 +678,10 @@ function dumpTables()
 
     if $SETTING_SKIP_DUMP_DATE; then
         MYSQL_CONFIG+=" --skip-dump-date"
+    fi
+
+    if $SETTING_SKIP_COMMENTS; then
+        MYSQL_CONFIG+=" --skip-comments"
     fi
 
     # print info
